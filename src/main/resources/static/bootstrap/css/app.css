@@ -1,0 +1,18 @@
+
+.nav{
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
+}
+.navbar-brand{
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Handlee', cursive;
+    font-size: 2rem;
+}
+.carousel-item{
+    height: 450px;
+}
+.carousel-item.carousel-image-1{
+    background: url("../../img/image1.jpg");
+    background-size: cover;
+}

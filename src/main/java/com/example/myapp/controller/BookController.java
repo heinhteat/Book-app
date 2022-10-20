@@ -18,13 +18,13 @@ public class BookController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("category",new Category());
+        /*model.addAttribute("category",new Category());
         model.addAttribute("author",new Author());
         model.addAttribute("book",new Book());
         model.addAttribute("authors",bookService.findAllAuthor());
         model.addAttribute("categories",bookService.findAllCategory());
-        model.addAttribute("books",bookService.findAllBook());
-        return "dash-board";
+        model.addAttribute("books",bookService.findAllBook());*/
+        return "layout/userViewLayout";
     }
     @GetMapping("/category-form")
     public String categoryForm(Model model){
