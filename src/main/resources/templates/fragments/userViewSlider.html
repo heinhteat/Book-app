@@ -3,24 +3,228 @@
 
 <body>
 <!--Slider-->
-<section id="showcase" th:fragment="slider">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
 
-        <div class="carousel-inner">
-            <div class="carousel-item carousel-image-1 active">
-                <div class="container">
-                    <div class="carousel-caption d-none d-md-block text-right mb-3">
-                        <h1 class="display-1">Chase Your Dream</h1>
+<div th:fragment="slider">
+    <div id="overlay">
+        <section id="showcase">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item carousel-image-1 active">
+                        <div class="container">
+                            <div class="carousel-caption d-none d-md-block text-white text-right mb-3">
+                                <h1 class="display-3">Catch-Up Your Dream</h1>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, culpa.</p>
+                                <button class="btn btn-info btn-lg">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-image-2">
+                        <div class="container">
+                            <div class="carousel-caption d-none d-md-block text-white text-center mb-3">
+                                <h1 class="display-3">Do What You Want</h1>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, culpa.</p>
+                                <button class="btn btn-info btn-lg">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-image-3">
+                        <div class="container">
+                            <div class="carousel-caption d-none d-md-block text-white text-left mb-3">
+                                <h1 class="display-3">Be Smart</h1>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, culpa.</p>
+                                <button class="btn btn-info btn-lg">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
+                        <spam class="carousel-control-prev-icon"></spam>
+                    </a>
+                    <a href="#myCarousel" data-slide="next" class="carousel-control-next">
+                        <spam class="carousel-control-next-icon"></spam>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section th:fragment="homeIcon" class="py-5 home-icon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-3 text-center">
+                        <i class="fas fa-book"></i>
+                        <h3>Explore</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, enim?</p>
+                    </div>
+
+                    <div class="col-md-4 mb-3 text-center">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Find</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, quidem.</p>
+                    </div>
+
+                    <div class="col-md-4 mb-3 text-center">
+                        <i class="fas fa-store"></i>
+                        <h3>Buy It</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, quidem.</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="home-heading" class="py-5">
+            <div class="dark-overlay">
+                <div class="row">
+                    <div class="col">
+                        <div class="container pt-5 text-center">
+                            <h3>Are You Ready to Get Started?</h3>
+                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                similique?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="bestSeller" class="py-5">
+            <div id="bestsellers" class="container-fluid bg-light text-center">
+                <h3 class="my-5">BestSeller</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <img th:src="${allbooks.get(0).imgUrl}" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${allbooks.get(0).title}"></h5>
+                                    <p class="card-text" th:text="${allbooks.get(0).description}"></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="btn btn-link">Buy</a>
+                                        <a class="card-text" th:text="${allbooks.get(0).price+ ' $'}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <img th:src="${allbooks.get(1).imgUrl}" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${allbooks.get(1).title}"></h5>
+                                    <p class="card-text" th:text="${allbooks.get(1).description}"></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="btn btn-link">Buy</a>
+                                        <a class="card-text" th:text="${allbooks.get(1).price+ ' $'}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <img th:src="${allbooks.get(2).imgUrl}" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${allbooks.get(2).title}"></h5>
+                                    <p class="card-text" th:text="${allbooks.get(2).description}"></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="btn btn-link">Buy</a>
+                                        <a class="card-text" th:text="${allbooks.get(2).price+ ' $'}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col">
+                        <h1>BENEFITS OF READING</h1>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam
+                            ipsam temporibus. Ea eaque ipsa quod! Animi asperiores ea error inventore ipsum labore
+                            minima, necessitatibus numquam unde. Dolores eligendi, nostrum.</p>
+                        <a href="#" th:href="@{/show-all-books}" class="btn btn-outline-info">LEARN MORE</a>
+                    </div>
+                    <div class="col">
+                        <img src="../../static/img/laptop.png" th:src="@{/img/laptop.png}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container pt-4 text-center">
+                <h1>WHAT OTHERS SAYING</h1>
+                <h3 class="text-info">#BOOKSHELF</h3>
+                <div class="row">
+                    <div class="col-md-3" th:each="book : ${allbooks}">
+                        <div th:if="book.imgUrl != null">
+                            <img th:src="${book.imgUrl}" class="img-thumbnail mb-3" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div id="quote" class="container py-5">
+                <blockquote class="blockquote text-center">
+                    <h3><i class="fas fa-quote-left"></i></h3>
+                    <p>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis doloribus eligendi eum, exercitationem expedita facere id magni necessitatibus nihil nostrum, obcaecati officiis perspiciatis provident quo rerum saepe! Aperiam, sed!</span><span>Alias architecto consectetur cumque dicta ducimus, est et facere fuga illo, incidunt ipsa iste itaque iure modi nihil perferendis, provident quo ratione voluptas voluptates. Beatae dolore mollitia non reprehenderit tempora.</span>
+                    </p>
+                    <footer class="blockquote-footer">Thomas Hardy</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="newsletters">
+            <div class="container text-white text-center py-5">
+                <p class="lead">EXPLORE AND ENJOY OUR BOOKSHELF AND MAKE HAPPY</p>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4">
+                        <form action="#" class="form-inline">
+                            <div class="input-group">
+                                <input type="text" placeholder="Enter Email" class="form-control">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary">Join Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer" class="p-3">
+            <ul class="nav d-flex justify-content-center flex-column flex-sm-row">
+                <li class="nav-item">
+                    <a href="" class="nav-link text-white">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-white">SEARCH</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-white">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-white">CONTENT US</a>
+                </li>
+            </ul>
+        </section>
+
     </div>
-</section>
+</div>
 </body>
 </html>

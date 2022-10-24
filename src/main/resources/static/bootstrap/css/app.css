@@ -1,18 +1,83 @@
 
 .nav{
-    font-family: 'Noto Sans', sans-serif;
+    /*font-family: 'Noto Sans', sans-serif;*/
     font-family: 'Raleway', sans-serif;
 }
 .navbar-brand{
-    font-family: 'Noto Sans', sans-serif;
-    font-family: 'Raleway', sans-serif;
+    /*font-family: 'Noto Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;*/
     font-family: 'Handlee', cursive;
-    font-size: 2rem;
+    font-size: 2rem !important;
+    color: white !important;
+}
+.navbar .nav-link{
+    color: white !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+}
+.navbar .nav-item.active{
+    border-left: lightslategray 4px solid;
+}
+#overlay{
+    /*background: rgba(0,0,0,0.2);*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 .carousel-item{
     height: 450px;
 }
 .carousel-item.carousel-image-1{
-    background: url("../../img/image1.jpg");
+    background: url("https://images.unsplash.com/photo-1515125520141-3e3b67bc0a88?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTIyfHxib29rc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
     background-size: cover;
 }
+.carousel-item.carousel-image-2{
+    background: url("https://images.unsplash.com/photo-1522211988038-6fcbb8c12c7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjU4fHxib29rc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+}
+.carousel-item.carousel-image-3{
+    background: url("https://images.unsplash.com/photo-1614791962365-7590111b1b1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80");
+    background-size: cover;
+}
+.home-icon i{
+    font-size: 36px;
+}
+#home-heading{
+    position: relative;
+    min-height: 200px;
+    background: url("https://images.unsplash.com/photo-1457276587196-a9d53d84c58b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: orange;
+}
+#quote i{
+    color: deepskyblue;
+    opacity: 0.3;
+}
+#newsletters{
+    background: #6c757d!important;
+}
+#footer{
+    background: black;
+}
+
+
+
+
+
+
+/*#bestsellers .card-img-top{
+    width: 400px!important;
+    height: 400px!important;
+}*/
+/*
+#header{
+    background: url("../../img/image1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/

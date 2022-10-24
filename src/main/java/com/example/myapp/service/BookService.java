@@ -23,25 +23,28 @@ public class BookService {
     @Autowired
     private CategoryDao categoryDao;
 
-    public void saveCategory(Category category){
+    public void saveCategory(Category category) {
         categoryDao.save(category);
     }
-    public List<Category> findAllCategory(){
+
+    public List<Category> findAllCategory() {
         return categoryDao.findAll();
     }
-    public Category findCategoryById(int id){
+
+    public Category findCategoryById(int id) {
         return categoryDao.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public void saveAuthor(Author author){
+    public void saveAuthor(Author author) {
         authorDao.save(author);
     }
-    public List<Author> findAllAuthor(){
+
+    public List<Author> findAllAuthor() {
         return authorDao.findAll();
     }
 
     @Transactional
-    public void saveBook(Book book,int categoryId,int authorId){
+    public void saveBook(Book book, int categoryId, int authorId) {
         Category category = categoryDao.findById(categoryId).orElseThrow(EntityNotFoundException::new);
         Author author = authorDao.findById(authorId).orElseThrow(EntityNotFoundException::new);
 
@@ -51,7 +54,11 @@ public class BookService {
         bookDao.save(book);
     }
 
-    public List<Book> findAllBook(){
+    public List<Book> findAllBook() {
         return bookDao.findAll();
+    }
+
+    public Book findBookById(int id) {
+        return bookDao.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }
