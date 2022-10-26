@@ -33,11 +33,15 @@ public class BookController {
         model.addAttribute("books",bookService.findAllBook());*/
         return "home";
     }
+
+    //admin
     @GetMapping("/category-form")
     public String categoryForm(Model model){
         model.addAttribute("category",new Category());
         return "category-form";
     }
+
+    //admin
     @PostMapping("/save-category")
     public String saveCategory(Category category, BindingResult result){
         if(result.hasErrors()){
@@ -46,12 +50,15 @@ public class BookController {
         bookService.saveCategory(category);
         return "redirect:/";
     }
+
+    //admin
     @GetMapping("/list-category")
     public String listCategory(Model model){
         model.addAttribute("categories",bookService.findAllCategory());
         return "list-category";
     }
 
+    //admin
     @PostMapping("/save-author")
     public String saveAuthor(Author author,BindingResult result){
         if (result.hasErrors()){
@@ -61,12 +68,14 @@ public class BookController {
         return "redirect:/";
     }
 
+    //admin
     @GetMapping("/list-author")
     public String listAuthor(Model model) {
         model.addAttribute("authors", bookService.findAllAuthor());
         return "list-author";
     }
 
+    //admin
     @PostMapping("/save-book")
     public String saveBook(Book book,BindingResult result){
         if (result.hasErrors()){
@@ -76,22 +85,27 @@ public class BookController {
         return "redirect:/";
     }
 
+    //admin
     @GetMapping("/list-books")
     public String listAllBooks(Model model){
         model.addAttribute("books",bookService.findAllBook());
         return "list-book";
     }
+
+    //admin
     @ModelAttribute("allbooks")
     public List<Book> showAllBook(){
         return bookService.findAllBook();
     }
 
-    @GetMapping("/show-all-books")
+    //shop
+    @GetMapping("/shop/show-all-books")
     public String listBooks(){
         return "list-books";
     }
 
-    @GetMapping("/books/details")
+    //shop
+    @GetMapping("/shop/books/details")
     public String bookDetails(@RequestParam("id") int id, Model model){
         model.addAttribute("book",bookService.findBookById(id));
         return "book-detail";

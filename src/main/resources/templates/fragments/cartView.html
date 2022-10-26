@@ -5,33 +5,47 @@
 <div th:fragment="cardView">
     <div class="alert alert-success" role="alert" th:if="${cartItems.isEmpty()}">
         <h3>No item in Cart!</h3>
+        <div>
+            <a th:href="@{/shop/show-all-books}" class="btn btn-outline-info">Continuous Shopping</a>
+        </div>
     </div>
-    <table class="table table-striped" th:if="${!cartItems.isEmpty()}">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="item : ${cartItems}">
-            <td th:text="${item.id}"></td>
-            <td th:text="${item.title}"></td>
-            <td th:text="${item.price}"></td>
-            <!--<td th:text="${item.quantity}"></td>-->
-            <td>Quantity</td>
-            <td><a th:href="@{'/cart/delete/'+${item.id}}" class="btn btn-outline-danger">Delete</a></td>
-        </tr>
-        </tbody>
+    <div th:if="${!cartItems.isEmpty()}">
+        <form th:action="@{/customer/register}" th:object="${bookDto}" method="post">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${cartItems}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.title}"></td>
+                    <td th:text="${item.price}"></td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="number" min="1" th:field="*{bookNumberList}" step="1" class="form-control">
+                            </div>
+                        </div>
+                    </td>
+                    <td><a th:href="@{'/cart/delete/'+${item.id}}" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+                </tbody>
 
-    </table>
-
-    <a th:href="@{/cart/clear}" class="btn btn-outline-danger mr-3">Clear Cart</a>
-    <a th:href="@{/show-all-books}" class="btn btn-outline-info">Continuous Shopping</a>
-    <a href="#" class="btn btn-outline-primary">Check Out</a>
+            </table>
+            <div class="p-4">
+                <a th:href="@{/cart/clear}" class="btn btn-outline-danger mr-3">Clear Cart</a>
+                <a th:href="@{/shop/show-all-books}" class="btn btn-outline-info">Continuous Shopping</a>
+                <!--<a href="#" class="btn btn-outline-primary">Check Out</a>-->
+            </div>
+            <button type="submit" class="btn btn-outline-info">CheckOut</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>

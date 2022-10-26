@@ -25,6 +25,7 @@ public class Book {
     @CollectionTable(name = "comments")
     @ElementCollection
     private List<String> comments = new ArrayList<>();
+
     @ManyToOne
     private Category category;
     @ManyToOne
@@ -34,4 +35,7 @@ public class Book {
     private Integer categoryId;
     @Transient
     private Integer authorId;
+
+    @ManyToMany(mappedBy = "books")
+    private List<Customer> customers = new ArrayList<>();
 }

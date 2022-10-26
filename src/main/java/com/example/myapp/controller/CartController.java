@@ -1,6 +1,7 @@
 package com.example.myapp.controller;
 
 import com.example.myapp.ds.Book;
+import com.example.myapp.ds.BookDto;
 import com.example.myapp.service.BookService;
 import com.example.myapp.service.CartService;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ public class CartController {
     @GetMapping("/cart/add")
     public String addToCart(@RequestParam("id") int id, Model model) {
         cartService.addToCart(bookService.findBookById(id));
-        return "redirect:/books/details?id=" + id;
+        return "redirect:/shop/books/details?id=" + id;
     }
 
     /*@ModelAttribute("cartSize")
@@ -36,6 +37,7 @@ public class CartController {
     public String viewCard(Model model){
         model.addAttribute("cartItems",cartService.listCart());
         model.addAttribute("cartSize",cartService.cartSize());
+        model.addAttribute("bookDto",new BookDto());
         return "cart-view";
     }
 
