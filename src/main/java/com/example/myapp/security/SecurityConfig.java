@@ -25,7 +25,14 @@ public class SecurityConfig {
                 .authenticated();
 
         httpSecurity.formLogin()
+                .loginPage("/login")
                 .defaultSuccessUrl("/home")
+                .failureUrl("/login-error")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/home")
                 .and()
                 .csrf().disable();
 

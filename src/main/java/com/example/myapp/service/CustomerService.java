@@ -28,6 +28,8 @@ public class CustomerService {
     private CartService cartService;
     @Autowired
     private CustomerBookOrderDao customerBookOrderDao;
+    @Autowired
+    private RolesDao rolesDao;
 
     public Customer findCustomerByName(String name) {
         return customerDao.findCustomerByName(name).orElse(null);
@@ -35,8 +37,7 @@ public class CustomerService {
 
     @Transactional
     public void register(Customer customer, Set<BookDto> bookDtoList) {
-        Roles roles = new Roles();
-        roles.setRoleName("ROLE_USER");
+        Roles roles = rolesDao.findRolesByRoleName("ROLE_USER").get();
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customer.addRoles(roles);
 
@@ -54,6 +55,7 @@ public class CustomerService {
         customerBookOrder.setTotalAmount(totalPrices(bookDtoList));
         //customerBookOrder.setOrderCode(UUID.randomUUID().toString());
         customerBookOrder.setOrderCode(generateCode(customer1));
+        customerBookOrderDao.save(customerBookOrder);
     }
 
     private double totalPrices(Set<BookDto> books) {

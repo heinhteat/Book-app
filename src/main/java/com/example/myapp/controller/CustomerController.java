@@ -26,8 +26,14 @@ public class CustomerController {
     @Autowired
     private CustomerDao customerDao;
 
-    @GetMapping("/customer/login")
+    @GetMapping("/login")
     public String login() {
+        return "login";
+    }
+
+    @GetMapping("/login-error")
+    public String loginError(Model model){
+        model.addAttribute("loginError",true);
         return "login";
     }
 
@@ -59,6 +65,7 @@ public class CustomerController {
         } else {
             customerService.saveCustomerBookOrder(existingCustomer, bookDtoSet);
         }
-        return "redirect:/customer/login";
+        cartService.clearCart();
+        return "redirect:/login";
     }
 }
